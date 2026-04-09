@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
     LayoutDashboard,
@@ -7,11 +7,13 @@ import {
     Radio,
     Bot,
     FileText,
-    Settings
+    Settings,
+    LogOut
 } from "lucide-react";
 
 function Sidebar() {
     const location = useLocation();
+    const navigate = useNavigate();
 
     const navItems = [
         { name: "Dashboard", path: "/", icon: LayoutDashboard },
@@ -23,11 +25,15 @@ function Sidebar() {
         { name: "Settings", path: "/settings", icon: Settings },
     ];
 
+    const handleLogout = () => {
+        navigate("/login");
+    };
+
     return (
-        <aside className="w-64 bg-[#0f172a] p-5 border-r border-white/5">
+        <aside className="w-64 bg-[#0f172a] p-5 border-r border-white/5 flex flex-col h-screen">
             <h2 className="text-xl font-bold mb-6 text-white">COGNIX AI</h2>
 
-            <nav className="flex flex-col gap-2 hover:translate-x-1 ">
+            <nav className="flex flex-col gap-2 hover:translate-x-1 flex-1">
                 {navItems.map((item, i) => {
                     const isActive = location.pathname === item.path;
 
@@ -55,6 +61,16 @@ function Sidebar() {
                     );
                 })}
             </nav>
+
+            <div className="mt-auto pt-5 border-t border-white/5">
+                <button
+                    onClick={handleLogout}
+                    className="flex w-full items-center gap-3 px-3 py-2 rounded-lg text-sm transition text-red-500 hover:bg-red-500/10 cursor-pointer"
+                >
+                    <LogOut size={18} />
+                    Logout
+                </button>
+            </div>
         </aside>
     );
 }

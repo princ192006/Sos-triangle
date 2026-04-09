@@ -1,0 +1,448 @@
+/* ═══════════════════════════════════════════════════════
+   LOGIN PAGE — Dark theme matching COGNIX AI dashboard
+   Background: #0B0F19  Card: #0f172a  Inputs: #111827
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Full-screen wrapper ─────────────────────────────── */
+.login-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: #e2e8f0;
+}
+
+/* ── Animated background ─────────────────────────────── */
+.login-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.login-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 100%, rgba(139, 92, 246, 0.06) 0%, transparent 60%),
+    #0B0F19;
+}
+
+.login-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, transparent 70%);
+}
+
+.login-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* ── Card container ──────────────────────────────────── */
+.login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  margin: 1rem;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.88) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  box-shadow:
+    0 0 60px rgba(99, 102, 241, 0.06),
+    0 25px 50px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── Brand / Logo ────────────────────────────────────── */
+.login-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.login-logo {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 16px;
+  color: white;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+.login-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #e2e8f0 30%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.login-subtitle {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+  letter-spacing: 0.04em;
+}
+
+/* ── Form ─────────────────────────────────────────────── */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.login-form-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  text-align: center;
+}
+
+.login-form-desc {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
+/* ── Field ────────────────────────────────────────────── */
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.login-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #94a3b8;
+  letter-spacing: 0.02em;
+}
+
+.login-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-forgot-btn {
+  background: none;
+  border: none;
+  font-size: 0.78rem;
+  color: #6366f1;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.login-forgot-btn:hover {
+  color: #818cf8;
+  text-decoration: underline;
+}
+
+/* ── Input wrapper ────────────────────────────────────── */
+.login-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 0.9rem;
+  height: 48px;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.login-input-wrap:focus-within {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.login-input-wrap.login-input-error {
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.08);
+}
+
+.login-input-icon {
+  color: #475569;
+  flex-shrink: 0;
+}
+
+.login-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  font-family: inherit;
+}
+
+.login-input::placeholder {
+  color: #475569;
+}
+
+.login-toggle-pw {
+  background: none;
+  border: none;
+  color: #475569;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.login-toggle-pw:hover {
+  color: #94a3b8;
+}
+
+/* ── Error message ────────────────────────────────────── */
+.login-error {
+  font-size: 0.75rem;
+  color: #ef4444;
+  padding-left: 0.2rem;
+}
+
+/* ── Error banner (invalid credentials) ───────────────── */
+.login-error-banner {
+  padding: 0.75rem 1rem;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 10px;
+  color: #f87171;
+  font-size: 0.84rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ── Remember me ──────────────────────────────────────── */
+.login-remember {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.login-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: #6366f1;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* ── Submit button ────────────────────────────────────── */
+.login-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6366f1 0%, #7c3aed 100%);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
+  transition: opacity 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.login-submit-btn:hover:not(:disabled) {
+  box-shadow: 0 4px 25px rgba(99, 102, 241, 0.4);
+}
+
+.login-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Spinner ──────────────────────────────────────────── */
+.login-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Divider ──────────────────────────────────────────── */
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.login-divider span {
+  font-size: 0.78rem;
+  color: #475569;
+  white-space: nowrap;
+}
+
+/* ── Google button ────────────────────────────────────── */
+.login-google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  height: 48px;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  font-family: inherit;
+}
+
+.login-google-btn:hover {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ── Sign-up text ─────────────────────────────────────── */
+.login-signup-text,
+.login-resend-text {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.login-signup-link {
+  background: none;
+  border: none;
+  color: #6366f1;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.login-signup-link:hover {
+  color: #818cf8;
+  text-decoration: underline;
+}
+
+/* ── 2FA verify icon ──────────────────────────────────── */
+.login-verify-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.login-verify-icon svg {
+  color: #6366f1;
+}
+
+.login-email-highlight {
+  color: #a5b4fc;
+  font-weight: 500;
+}
+
+/* ── OTP row ──────────────────────────────────────────── */
+.login-otp-row {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.login-otp-input {
+  width: 48px;
+  height: 56px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  font-family: inherit;
+}
+
+.login-otp-input:focus {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* ── Back button ──────────────────────────────────────── */
+.login-back-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  padding: 0.4rem;
+  transition: color 0.2s;
+  font-family: inherit;
+}
+
+.login-back-btn:hover {
+  color: #94a3b8;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 480px) {
+  .login-card {
+    margin: 0.75rem;
+    padding: 1.75rem;
+  }
+
+  .login-otp-input {
+    width: 42px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+
+  .login-otp-row {
+    gap: 0.4rem;
+  }
+}

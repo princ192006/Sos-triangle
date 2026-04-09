@@ -6,12 +6,14 @@ import Dashboard from "./pages/Dashboard";
 import Upload from "./pages/Upload";
 import Incidents from "./pages/Incidents";
 import Agents from "./pages/Agents";
+import Login from "./pages/Login";
 
 function App() {
   const [incidents, setIncidents] = useState(null);
 
   return (
     <Routes>
+      <Route path="/login" element={<Login />} />
       <Route path="/" element={<Dashboard />} />
       <Route
         path="/upload"
