@@ -327,6 +327,42 @@ export function initiateGoogleSignIn() {
 }
 
 // ═══════════════════════════════════════════════════════════════
+// GITHUB OAUTH
+// ═══════════════════════════════════════════════════════════════
+
+/**
+ * Initiate GitHub OAuth flow
+ * Opens GitHub sign-in page in a popup window.
+ *
+ * NOTE: In production, replace GITHUB_CLIENT_ID with your actual
+ * GitHub OAuth App Client ID from https://github.com/settings/developers
+ */
+const GITHUB_CLIENT_ID = "DEMO_GITHUB_CLIENT_ID"; // Replace with real Client ID
+
+export function initiateGitHubSignIn() {
+  const githubAuthURL = new URL("https://github.com/login/oauth/authorize");
+
+  githubAuthURL.searchParams.set("client_id", GITHUB_CLIENT_ID);
+  githubAuthURL.searchParams.set("redirect_uri", window.location.origin + "/auth/github/callback");
+  githubAuthURL.searchParams.set("scope", "read:user user:email");
+  githubAuthURL.searchParams.set("state", crypto.randomUUID?.() || Date.now().toString(36));
+
+  // Open in a centered popup
+  const width = 500;
+  const height = 700;
+  const left = window.screenX + (window.outerWidth - width) / 2;
+  const top = window.screenY + (window.outerHeight - height) / 2;
+
+  const popup = window.open(
+    githubAuthURL.toString(),
+    "github-signin",
+    `width=${width},height=${height},left=${left},top=${top},menubar=no,toolbar=no,location=yes,status=no`
+  );
+
+  return popup;
+}
+
+// ═══════════════════════════════════════════════════════════════
 // UTILITIES
 // ═══════════════════════════════════════════════════════════════
 
